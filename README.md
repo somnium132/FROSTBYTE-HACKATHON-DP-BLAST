@@ -1,19 +1,8 @@
-# ❄️ FROSTBYTE DP Blast ❄️
+# FROSTBYTE DP Blast
 
 Welcome to **FROSTBYTE DP Blast**, the official profile picture customizer for the **FROSTBYTE: Youth Week Hackathon 2026** – Santa Rosa City's flagship youth innovation competition, proudly brought to you by the **AWS Learning Club – Polar**!
 
 This application allows attendees, participants, and supporters to easily personalize their profile pictures (DP) with the official FROSTBYTE 2026 frames, fine-tune their photo layout, and copy customized social sharing spiels to help blast the event across socials.
-
----
-
-## ✨ Features
-
-- **🖼️ Interactive Canvas Customizer**: Upload any PNG, JPG, or WEBP photo (up to 10MB) and overlay the official FROSTBYTE DP frame.
-- **🔄 Precision Adjustments**: Pan (drag), zoom (pinch), and tilt/rotate your photo directly on the canvas or use the responsive sliders to frame your photo perfectly.
-- **🚀 High-Resolution Exports**: Composition is rendered on a high-fidelity rendering canvas at the original frame's resolution (up to 2048px) to avoid blurriness.
-- **💬 Social Share Spiel Generator**: Enter your name to generate a customized, fun, and frosty event invite text. Easily copy it directly to your clipboard.
-- **❄️ Premium Aesthetic**: Modern, responsive dark-mode dashboard with interactive snow effects, sleek typography, and glowing details.
-- **📱 Responsive Logo & UI**: Dynamically switches to a compact logo icon on mobile screens to save screen space while showing a clean layout.
 
 ---
 
