@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Copy, Check, X, User } from "lucide-react";
+import { Copy, Check, X, User, Download } from "lucide-react";
 
 interface CaptionModalProps {
   isOpen: boolean;
@@ -15,7 +15,7 @@ const CAPTION_TEMPLATE = `𝐓𝐡𝐞 𝐟𝐫𝐨𝐬𝐭 𝐡𝐚𝐬 𝐬�
 
 Somewhere beneath the ice, something has been building. A crest has formed. A name has surfaced: {{name}} 🧊✨
 
-𝐅𝐑𝐎𝐒𝐓𝐁𝐘𝐓𝐄: 𝐘𝐨𝐮𝐭𝐡 𝐖𝐞𝐞𝐤 𝐇𝐚𝐜𝐤𝐚𝐭𝐡𝐨𝐧 𝟐𝟎𝟐𝟔 has arrived, Santa Rosa City's flagship youth innovation competition, brought to you by the 𝐀𝐖𝐒 𝐋𝐞𝐚𝐫𝐧𝐢𝐧𝐠 𝐂𝐥𝐮𝐛 – 𝐏𝐨𝐥𝐚𝐫! 🧊
+𝐅𝐑𝐎𝐒𝐓𝐁𝐘𝐓𝐄: 𝐘𝐨𝐮𝐭𝐡 𝐖𝐞𝐞𝐤 𝐇𝐚𝐜𝐤𝐚𝐭𝐡𝐨𝐧 𝟐𝟎𝟐𝟔 has arrived, Santa Rosa City's flagship youth innovation competition, brought to you by the 𝐀𝐖𝐒 𝐋𝐞𝐚𝐫𝐧𝐢𝐧𝐠 𝐂𝐥𝐮𝐛 – 𝐏𝐨𝐥𝐚𝐫! 🐻‍❄❄️
 
 This is no ordinary competition. Deep in the frost, builders are gathering, not to pitch ideas into the void, but to forge them into something real 🔨. Round by round, the ice will test not just code, but creativity, strategy, and story. Every prototype that survives the cold carries a piece of something bigger within it. 🌍
 
@@ -62,6 +62,16 @@ export default function CaptionModal({ isOpen, onClose, defaultName, imageUrl }:
     } catch (err) {
       console.error("Failed to copy text: ", err);
     }
+  };
+
+  const handleDownloadImage = () => {
+    if (!imageUrl) return;
+    const anchor = document.createElement("a");
+    anchor.href = imageUrl;
+    anchor.download = `FROSTBYTE-DP.png`;
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
   };
 
   // Prevent scrolling when modal is open
@@ -129,9 +139,6 @@ export default function CaptionModal({ isOpen, onClose, defaultName, imageUrl }:
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <p className="text-[11px] text-cyan-400 font-semibold text-center leading-normal animate-pulse">
-                    Long-press / Hold the image to save directly to your gallery
-                  </p>
                 </div>
               )}
 
@@ -172,13 +179,20 @@ export default function CaptionModal({ isOpen, onClose, defaultName, imageUrl }:
               {/* Actions */}
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 <button
-                  onClick={handleCopy}
+                  onClick={handleDownloadImage}
                   className="flex flex-1 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 py-3 text-sm font-bold text-white shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/35 active:scale-95 transition-all duration-200"
+                >
+                  <Download className="h-4 w-4" />
+                  <span>Download DP</span>
+                </button>
+                <button
+                  onClick={handleCopy}
+                  className="flex flex-1 items-center justify-center gap-2 rounded-full border border-slate-700 bg-transparent py-3 text-sm font-bold text-slate-300 hover:bg-slate-800 hover:text-white active:scale-95 transition-all duration-200"
                 >
                   {copied ? (
                     <>
                       <Check className="h-4 w-4" />
-                      <span>Copied Caption!</span>
+                      <span>Copied!</span>
                     </>
                   ) : (
                     <>
@@ -186,12 +200,6 @@ export default function CaptionModal({ isOpen, onClose, defaultName, imageUrl }:
                       <span>Copy Caption</span>
                     </>
                   )}
-                </button>
-                <button
-                  onClick={onClose}
-                  className="flex flex-1 items-center justify-center rounded-full border border-slate-700 bg-transparent py-3 text-sm font-bold text-slate-300 hover:bg-slate-800 hover:text-white transition-colors duration-200"
-                >
-                  Close
                 </button>
               </div>
             </div>
