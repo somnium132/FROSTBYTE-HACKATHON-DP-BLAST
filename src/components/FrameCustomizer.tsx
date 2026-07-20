@@ -530,23 +530,24 @@ export default function FrameCustomizer() {
           </div>
 
           {/* Photo Import / Reset */}
-          <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 w-full">
-            <input
-              type="file"
-              ref={fileInputRef}
-              onChange={handlePhotoChange}
-              accept="image/png,image/jpeg,image/webp"
-              className="hidden"
-            />
-            <button
-              onClick={() => fileInputRef.current?.click()}
-              className="flex-1 sm:flex-initial flex items-center justify-center gap-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 px-5 py-2.5 text-xs sm:text-sm font-bold text-cyan-300 hover:bg-cyan-500/20 active:scale-95 transition-all duration-200 cursor-pointer"
-            >
-              <Upload className="h-4 w-4" />
-              <span>{photoSrc ? "Change Photo" : "Choose Photo"}</span>
-            </button>
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handlePhotoChange}
+            accept="image/png,image/jpeg,image/webp"
+            className="hidden"
+          />
 
-            {photoSrc && (
+          {photoSrc && (
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 w-full">
+              <button
+                onClick={() => fileInputRef.current?.click()}
+                className="flex-1 sm:flex-initial flex items-center justify-center gap-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 px-5 py-2.5 text-xs sm:text-sm font-bold text-cyan-300 hover:bg-cyan-500/20 active:scale-95 transition-all duration-200 cursor-pointer"
+              >
+                <Upload className="h-4 w-4" />
+                <span>Change Photo</span>
+              </button>
+
               <button
                 onClick={handleReset}
                 className="flex-1 sm:flex-initial flex items-center justify-center gap-2 rounded-full border border-slate-700 bg-transparent px-5 py-2.5 text-xs sm:text-sm font-bold text-slate-300 hover:bg-slate-800 active:scale-95 transition-all duration-200"
@@ -554,11 +555,11 @@ export default function FrameCustomizer() {
                 <RefreshCw className="h-4 w-4" />
                 <span>Reset</span>
               </button>
-            )}
-          </div>
+            </div>
+          )}
 
           {/* Customizer Slider Panel or Upload Box */}
-          {photoSrc && (
+          {photoSrc ? (
             <motion.div
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
@@ -684,6 +685,19 @@ export default function FrameCustomizer() {
                 </button>
               </div>
             </motion.div>
+          ) : (
+            <div 
+              onClick={() => fileInputRef.current?.click()}
+              className="rounded-2xl border border-dashed border-cyan-500/35 bg-cyan-950/10 p-6 sm:p-8 text-center flex flex-col items-center hover:bg-cyan-950/20 transition-all duration-200 cursor-pointer shadow-[0_0_20px_rgba(0,240,255,0.03)]"
+            >
+              <div className="inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl sm:rounded-2xl bg-cyan-950/60 border border-cyan-500/25 text-cyan-400 mb-3 sm:mb-4 animate-pulse">
+                <Upload className="h-5 w-5 sm:h-6 sm:w-6" />
+              </div>
+              <h4 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wide">Upload your photo to start</h4>
+              <p className="text-[10px] sm:text-xs text-slate-400 mt-1 sm:mt-1.5 max-w-[280px]">
+                Drag and drop your file here, or click to browse. Supports PNG, JPG, or WEBP up to 10MB.
+              </p>
+            </div>
           )}
 
           {/* ATTENDANT NAME INLAND INPUT */}
