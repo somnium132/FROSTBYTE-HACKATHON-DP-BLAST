@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/assets/Frostbyte dp blast 1.png",
+        url: "/assets/Frostbyte dp blast 1.webp",
         width: 1080,
         height: 1080,
         alt: "FROSTBYTE DP Frame",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "FROSTBYTE DP Blast | Youth Week Hackathon",
     description: "Customize your profile picture with the official FROSTBYTE: Youth Week Hackathon DP frames overlay and share it on social media!",
-    images: ["/assets/Frostbyte dp blast 1.png"],
+    images: ["/assets/Frostbyte dp blast 1.webp"],
   },
 };
 

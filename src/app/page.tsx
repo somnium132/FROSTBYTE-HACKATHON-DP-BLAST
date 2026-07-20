@@ -16,7 +16,7 @@ export default function Home() {
         {/* Faint background image overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-screen"
-          style={{ backgroundImage: "url('/assets/Background.png')" }}
+          style={{ backgroundImage: "url('/assets/Background.webp')" }}
         />
         {/* Glow Spheres */}
         <div className="absolute left-[10%] top-[20%] h-96 w-96 rounded-full bg-cyan-500/10 blur-[120px]" />
@@ -33,7 +33,7 @@ export default function Home() {
             className="flex items-center"
           >
             <Image
-              src="/assets/logo icon.png"
+              src="/assets/logo icon.webp"
               alt="FROSTBYTE Logo"
               width={40}
               height={40}

@@ -9,7 +9,7 @@ const MAX_UPLOAD_BYTES = 10 * 1024 * 1024; // 10MB
 const MAX_PREVIEW_EDGE = 1024;
 const MAX_EXPORT_EDGE = 2048;
 const ALLOWED_TYPES = new Set(["image/png", "image/jpeg", "image/webp"]);
-const OVERLAY_IMAGE_PATH = "/assets/Frostbyte dp blast 1.png";
+const OVERLAY_IMAGE_PATH = "/assets/Frostbyte dp blast 1.webp";
 
 export default function FrameCustomizer() {
   const [photoSrc, setPhotoSrc] = useState<string | null>(null);
