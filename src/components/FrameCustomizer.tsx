@@ -297,7 +297,7 @@ export default function FrameCustomizer() {
         const url = URL.createObjectURL(blob);
         const anchor = document.createElement("a");
         anchor.href = url;
-        anchor.download = `FROSTBYTE-DP.png`;
+        anchor.download = `FROSTBYTE-DP.webp`;
         document.body.appendChild(anchor);
         anchor.click();
         document.body.removeChild(anchor);
@@ -306,7 +306,7 @@ export default function FrameCustomizer() {
         setStatus("Download started! Share your DP using the spiel below.");
         setIsDownloading(false);
         setIsCaptionOpen(true);
-      }, "image/png");
+      }, "image/webp", 0.95);
     } catch (err) {
       console.error(err);
       setStatus("High-res export failed.", true);
