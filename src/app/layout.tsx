@@ -8,7 +8,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://frostbyte-frame.vercel.app"),
+  metadataBase: new URL("https://frostbyte-hackathon-dp-blast.vercel.app/"),
   title: "FROSTBYTE DP Blast | Youth Week Hackathon",
   description: "Customize your profile picture with the official FROSTBYTE: Youth Week Hackathon DP frames overlay and share it on social media to show your support!",
   openGraph: {

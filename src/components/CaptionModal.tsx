@@ -24,9 +24,9 @@ Keep your eyes on the glacier, 𝙨𝙣𝙤𝙬𝙥𝙖𝙣𝙞𝙤𝙣𝙨 🐾
 Something colder, sharper, and far more ambitious is taking shape!
 
 📸 𝐖𝐞𝐚𝐫 𝐭𝐡𝐞 𝐟𝐫𝐨𝐬𝐭: 
-🔗 https://frostbyte-frame.vercel.app
-🔗 https://frostbyte-frame.vercel.app
-🔗 https://frostbyte-frame.vercel.app
+🔗 https://frostbyte-hackathon-dp-blast.vercel.app/
+🔗 https://frostbyte-hackathon-dp-blast.vercel.app/
+🔗 https://frostbyte-hackathon-dp-blast.vercel.app/
 
 #AWSLCPOLAR
 #AWSLearningClub
