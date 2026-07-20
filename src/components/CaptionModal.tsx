@@ -130,9 +130,7 @@ export default function CaptionModal({ isOpen, onClose, defaultName, imageUrl }:
                     />
                   </div>
                   <p className="text-[11px] text-cyan-400 font-semibold text-center leading-normal animate-pulse">
-                    📲 Long-press / Hold the image to save directly to your gallery
-                    <br />
-                    <span className="text-[10px] text-slate-500 font-medium">(Highly recommended for Messenger/Instagram users)</span>
+                    Long-press / Hold the image to save directly to your gallery
                   </p>
                 </div>
               )}
