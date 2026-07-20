@@ -287,7 +287,11 @@ export default function FrameCustomizer() {
         tiltDeg
       );
 
-      // Create download
+      // 1. Get Base64 Data URL for the Modal Image Preview (extremely reliable for mobile webviews)
+      const dataUrl = exportCanvas.toDataURL("image/png");
+      setGeneratedImageUrl(dataUrl);
+
+      // 2. Create download
       exportCanvas.toBlob((blob) => {
         if (!blob) {
           setStatus("Blob export failed.", true);
@@ -296,13 +300,13 @@ export default function FrameCustomizer() {
         }
 
         const url = URL.createObjectURL(blob);
-        setGeneratedImageUrl(url);
         const anchor = document.createElement("a");
         anchor.href = url;
         anchor.download = `FROSTBYTE-DP.png`;
         document.body.appendChild(anchor);
         anchor.click();
         document.body.removeChild(anchor);
+        URL.revokeObjectURL(url); // Safe to revoke since preview uses base64 dataUrl
 
         setStatus("Download started! Share your DP using the spiel below.");
         setIsDownloading(false);
@@ -752,10 +756,7 @@ export default function FrameCustomizer() {
         isOpen={isCaptionOpen}
         onClose={() => {
           setIsCaptionOpen(false);
-          if (generatedImageUrl) {
-            URL.revokeObjectURL(generatedImageUrl);
-            setGeneratedImageUrl(null);
-          }
+          setGeneratedImageUrl(null);
         }}
         defaultName={visitorName}
         imageUrl={generatedImageUrl || undefined}
