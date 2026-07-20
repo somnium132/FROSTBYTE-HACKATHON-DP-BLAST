@@ -451,7 +451,7 @@ export default function FrameCustomizer() {
           {/* Catchy Main Title */}
           <h1 className="text-3xl font-black italic tracking-tight text-white uppercase sm:text-5xl lg:text-6xl leading-[0.95]">
             FREEZE YOUR <br />
-            <span className="bg-gradient-to-b from-[#d5f3ff] to-[#9adbf0] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-b from-[#d5f3ff] to-[#9adbf0] bg-clip-text text-transparent pr-4">
               FROSTBYTE DP
             </span>
           </h1>
