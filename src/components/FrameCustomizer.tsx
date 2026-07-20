@@ -201,7 +201,7 @@ export default function FrameCustomizer() {
   // Re-run render on state changes
   useEffect(() => {
     renderPreview();
-  }, [zoom, offsetX, offsetY, tiltDeg, renderPreview]);
+  }, [zoom, offsetX, offsetY, tiltDeg, photoSrc, renderPreview]);
 
   // Handle Photo selection
   const handlePhotoChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
