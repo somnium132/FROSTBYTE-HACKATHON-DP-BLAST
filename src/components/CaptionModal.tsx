@@ -8,6 +8,7 @@ interface CaptionModalProps {
   isOpen: boolean;
   onClose: () => void;
   defaultName: string;
+  imageUrl?: string;
 }
 
 const CAPTION_TEMPLATE = `𝐓𝐡𝐞 𝐟𝐫𝐨𝐬𝐭 𝐡𝐚𝐬 𝐬𝐞𝐭𝐭𝐥𝐞𝐝. ❄️🌨️
@@ -37,7 +38,7 @@ Something colder, sharper, and far more ambitious is taking shape!
 💻: Kier B.
 ✒️: Vince D.`;
 
-export default function CaptionModal({ isOpen, onClose, defaultName }: CaptionModalProps) {
+export default function CaptionModal({ isOpen, onClose, defaultName, imageUrl }: CaptionModalProps) {
   const [name, setName] = useState(defaultName || "Frostmate");
   const [copied, setCopied] = useState(false);
 
@@ -116,6 +117,25 @@ export default function CaptionModal({ isOpen, onClose, defaultName }: CaptionMo
               <p className="mt-2 text-sm text-slate-400">
                 Your customized DP is downloading. Personalize your share caption below to tell everyone you are attending!
               </p>
+
+              {/* Image Preview for saving fallback (especially for Messenger) */}
+              {imageUrl && (
+                <div className="mt-5 flex flex-col items-center gap-3 p-4 rounded-2xl bg-slate-900/60 border border-slate-800/80">
+                  <div className="relative w-40 h-40 overflow-hidden rounded-xl border border-cyan-500/30 shadow-[0_0_15px_rgba(0,240,255,0.1)]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img 
+                      src={imageUrl} 
+                      alt="Generated DP Preview" 
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <p className="text-[11px] text-cyan-400 font-semibold text-center leading-normal animate-pulse">
+                    📲 Long-press / Hold the image to save directly to your gallery
+                    <br />
+                    <span className="text-[10px] text-slate-500 font-medium">(Highly recommended for Messenger/Instagram users)</span>
+                  </p>
+                </div>
+              )}
 
               {/* Name Editor inside modal */}
               <div className="mt-5">

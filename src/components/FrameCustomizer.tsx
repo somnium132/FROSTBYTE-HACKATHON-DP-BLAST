@@ -15,6 +15,7 @@ export default function FrameCustomizer() {
   const [photoSrc, setPhotoSrc] = useState<string | null>(null);
   const [visitorName, setVisitorName] = useState("");
   const [isCaptionOpen, setIsCaptionOpen] = useState(false);
+  const [generatedImageUrl, setGeneratedImageUrl] = useState<string | null>(null);
   const [statusMessage, setStatusMessage] = useState("Upload a photo to start customizing!");
   const [isErrorStatus, setIsErrorStatus] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
@@ -295,13 +296,13 @@ export default function FrameCustomizer() {
         }
 
         const url = URL.createObjectURL(blob);
+        setGeneratedImageUrl(url);
         const anchor = document.createElement("a");
         anchor.href = url;
         anchor.download = `FROSTBYTE-DP.png`;
         document.body.appendChild(anchor);
         anchor.click();
         document.body.removeChild(anchor);
-        URL.revokeObjectURL(url);
 
         setStatus("Download started! Share your DP using the spiel below.");
         setIsDownloading(false);
@@ -749,8 +750,15 @@ export default function FrameCustomizer() {
       {/* Share / Caption Spiel Modal */}
       <CaptionModal
         isOpen={isCaptionOpen}
-        onClose={() => setIsCaptionOpen(false)}
+        onClose={() => {
+          setIsCaptionOpen(false);
+          if (generatedImageUrl) {
+            URL.revokeObjectURL(generatedImageUrl);
+            setGeneratedImageUrl(null);
+          }
+        }}
         defaultName={visitorName}
+        imageUrl={generatedImageUrl || undefined}
       />
     </div>
   );
